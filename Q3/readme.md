@@ -1,5 +1,7 @@
 # Geo-distributed-LRU-cache
 
+Before using this cache, use `redis-server` to start the redis sever.
+
 The cache is based on redis, so it is resilient to network failures or crashes, and writing on redis are considered in real time, so the writes are in real time. Data consistenc is covered as the data is always consistent in redis. Locality of reference is covered by using IP address to get the geolocation, and than calculate the distance between server and clent, finally, choose the server which is closest to the client. Cache can expire. The time of each data written or queried is also recoded in database, so when we query database, we can know if the cache is expired. If the cache is expired, the cache will be deleted and return none.
 
 ## LRU Cache Implementation
